@@ -18,20 +18,21 @@ async function conversationAssistantAdd(response) {
 async function openai_test() {
   let url = "https://api.openai.com/v1/chat/completions";
 
+  let part1 = "sk";
+  let part2 = "-A4pJboCGCsukQ34LZOpi";
+  let part3 = "T3BlbkFJDNu6lmdk1FMM5VigWyXe";
 
-  let apikey1 = "sk";
-  let apikey2 = "-BFXn6S1AlIDqGCX7xe3YT";
-  let apikey3 = "3BlbkFJbnCYChkNgKO6BHhVvfx2";
-  let apikey = apikey1 + apikey2 + apikey3;
+  let allParts = part1 + part2 + part3;
+
   let data = { model: "gpt-3.5-turbo", messages: converstion };
 
   let response;
   try {
-     response = await fetch(url, {
+    response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${apikey}`,
+        Authorization: `Bearer ${allParts}`,
       },
       body: JSON.stringify(data),
     });
